@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Table, Product, Order, OrderItem
+from .models import Table, Product, Order, OrderItem, Category
 from rest_framework.exceptions import ValidationError
 
 class TableSerializer(serializers.ModelSerializer):
@@ -84,3 +84,8 @@ class OrderSerializer(serializers.ModelSerializer):
                 OrderItem.objects.create(order=instance, product=product, quantity=quantity)
 
         return instance
+
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = '__all__'

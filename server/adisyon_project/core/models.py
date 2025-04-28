@@ -1,6 +1,14 @@
 from django.db import models
 from users.models import CustomUser
 
+
+class Category(models.Model):
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
+
 class Table(models.Model): #bu sınıf masa bilgilerini tutmak için kullanılıyor
    
     name = models.CharField(max_length=20, default="masa")
@@ -13,6 +21,7 @@ class Product(models.Model): #bu sınıf ürün bilgilerini tutmak için kullan�
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=False, blank=False)
 
     def __str__(self):
         return self.name

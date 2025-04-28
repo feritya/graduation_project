@@ -2,8 +2,8 @@ from django.shortcuts import render
 from .filters import OrderFilter
 
 from rest_framework import viewsets
-from .models import Table, Product, Order, OrderItem
-from .serializers import TableSerializer, ProductSerializer, OrderSerializer, OrderItemSerializer
+from .models import Table, Product, Order, OrderItem, Category
+from .serializers import TableSerializer, ProductSerializer, OrderSerializer, OrderItemSerializer, CategorySerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -102,6 +102,9 @@ class OrderViewSet(viewsets.ModelViewSet):
 
 
 
+class CategoryViewSet(viewsets.ModelViewSet):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
 
 
