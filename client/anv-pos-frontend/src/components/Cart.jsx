@@ -1,65 +1,59 @@
-// src/components/Cart.jsx
-import React from "react";
-import CartItem from "./CartItem";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-const Cart = ({ cartItems, onRemove, onSubmit }) => {
-  const totalPrice = cartItems.reduce(
-    (sum, item) => sum + item.quantity * item.price,
-    0
-  );
+const Cart = () => {
+  const { id } = useParams(); // masa id'si
+  const [table, setTable] = useState(null);
+  const [order, setOrder] = useState(null);
+
+  useEffect(() => {
+    const fetchTableAndOrder = async () => {
+      try {
+        // Masa bilgisi
+        const tableRes = await fetch(`http://127.0.0.1:8000/api/tables/${id}/`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+
+        // Sipariş bilgisi (mevcut sipariş varsa getir)
+        const orderRes = await fetch(`http://127.0.0.1:8000/api/orders/by_table/${id}/`, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+
+        if (tableRes.ok) {
+          const tableData = await tableRes.json();
+          setTable(tableData);
+        }
+
+        if (orderRes.ok) {
+          const orderData = await orderRes.json();
+          setOrder(orderData);
+        }
+      } catch (error) {
+        console.error('Veri çekme hatası:', error);
+      }
+    };
+
+    fetchTableAndOrder();
+  }, [id]);
 
   return (
-    <div
-      style={{
-        backgroundColor: "#1e2e2f",
-        padding: "16px",
-        borderRadius: "12px",
-        marginTop: "20px",
-        color: "#fff",
-      }}
-    >
-      <h2 style={{ marginBottom: "16px", fontSize: "20px" }}>Sepet</h2>
-      {cartItems.length === 0 ? (
-        <p>Sepet boş</p>
-      ) : (
-        cartItems.map((item, index) => (
-          <CartItem
-            key={index}
-            name={item.name}
-            quantity={item.quantity}
-            price={item.price}
-            onRemove={() => onRemove(index)}
-          />
-        ))
+    <div style={{ padding: '1rem', color: '#fff' }}>
+      <h2>{table ? `${table.name} Masası` : 'Masa yükleniyor...'}</h2>
+      <h3>{order ? 'Mevcut Sipariş' : 'Henüz sipariş yok'}</h3>
+
+      {order && (
+        <ul>
+          {order.items.map((item) => (
+            <li key={item.id}>
+              {item.product.name} x {item.quantity}
+            </li>
+          ))}
+        </ul>
       )}
-
-      <div
-        style={{
-          marginTop: "20px",
-          fontWeight: "bold",
-          fontSize: "18px",
-          textAlign: "right",
-        }}
-      >
-        Toplam: {totalPrice} ₺
-      </div>
-
-      <button
-        onClick={onSubmit}
-        style={{
-          marginTop: "12px",
-          width: "100%",
-          padding: "12px",
-          backgroundColor: "#20cd8d",
-          border: "none",
-          color: "#fff",
-          borderRadius: "10px",
-          cursor: "pointer",
-          fontSize: "16px",
-        }}
-      >
-        Siparişi Onayla
-      </button>
     </div>
   );
 };

@@ -1,28 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Home from './pages/home.jsx';
-import './index.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/Dashboard';
-import Adisyon from './pages/Adisyon.jsx';
-import Tables from './pages/Tables.jsx';
+// src/App.jsx
+import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Adisyon from "./pages/Adisyon";
 
+// Geçici boş bileşenler (ileride sayfalar oluşturulacak)
+const MasaDuzeni = () => <h2>Masa Düzeni Sayfası</h2>;
+const Rapor = () => <h2>Rapor Sayfası</h2>;
+const Stok = () => <h2>Stok Sayfası</h2>;
+const Yardim = () => <h2>Yardım Sayfası</h2>;
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/adisyon" element={<Adisyon />} />
-        <Route path="/masalar" element={<Home />} />
-        {/* <Route path="/masalar" element={<Tables />} /> */}
-
-
-
-      </Routes>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/" element={<Dashboard />} />
+      <Route path="/adisyon" element={<Adisyon />} />
+      <Route path="/masalar" element={<MasaDuzeni />} />
+      <Route path="/rapor" element={<Rapor />} />
+      <Route path="/stok" element={<Stok />} />
+      <Route path="/yardim" element={<Yardim />} />
+    </Routes>
   );
 }
 

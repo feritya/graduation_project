@@ -1,24 +1,26 @@
+// src/components/TableCard.jsx
+
 import React from 'react';
 
 const TableCard = ({ table, onClick }) => {
   return (
-    <button
-      onClick={() => onClick(table)}
+    <div
+      onClick={onClick}
       style={{
-        width: '100px',
+        backgroundColor: '#20cd8d',
+        padding: '1rem',
+        borderRadius: '1rem',
+        width: '120px',
         height: '100px',
-        backgroundColor: table.is_occupied ? '#ff5e57' : '#20cd8d',
+        cursor: 'pointer',
+        textAlign: 'center',
         color: '#fff',
         fontWeight: 'bold',
-        fontSize: '1rem',
-        border: 'none',
-        borderRadius: '12px',
-        margin: '10px',
-        cursor: 'pointer',
       }}
     >
-      {table.name}
-    </button>
+      <div>{table.name}</div>
+      <div>{table.status === 'occupied' ? 'Dolu' : 'Boş'}</div>
+    </div>
   );
 };
 
