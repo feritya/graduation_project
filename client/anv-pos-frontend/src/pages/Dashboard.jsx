@@ -1,8 +1,6 @@
-// src/pages/Dashboard.jsx
-
 import React from 'react';
-import './Dashboard.css'; 
 import { useNavigate } from 'react-router-dom';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -11,13 +9,15 @@ const Dashboard = () => {
     { label: 'ADİSYON', icon: '📅', path: '/adisyon' },
     { label: 'MASA DÜZENİ', icon: '🪑', path: '/masalar' },
     { label: 'RAPOR', icon: '📊', path: '/rapor' },
-    { label: 'STOK', icon: '🎮', path: '/stok' },
+    { label: 'STOK', icon: '📦', path: '/stok' },
     { label: 'YARDIM', icon: '💡', path: '/yardim' }
   ];
 
   return (
     <div className="dashboard">
-      <h2 className="title"><span className="bar"></span> Yönetici<br />Ana sayfası</h2>
+      <h2 className="title">
+        <span className="bar"></span> Yönetici<br />Ana sayfası
+      </h2>
       <div className="tile-container">
         {tiles.map((tile, index) => (
           <div key={index} className="tile" onClick={() => navigate(tile.path)}>

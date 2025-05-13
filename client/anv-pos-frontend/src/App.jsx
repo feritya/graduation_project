@@ -1,25 +1,17 @@
-// src/App.jsx
-import { Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Adisyon from "./pages/Adisyon";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
+import Login from './pages/Login';
 
-// Geçici boş bileşenler (ileride sayfalar oluşturulacak)
-const MasaDuzeni = () => <h2>Masa Düzeni Sayfası</h2>;
-const Rapor = () => <h2>Rapor Sayfası</h2>;
-const Stok = () => <h2>Stok Sayfası</h2>;
-const Yardim = () => <h2>Yardım Sayfası</h2>;
-
-function App() {
+const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Dashboard />} />
-      <Route path="/adisyon" element={<Adisyon />} />
-      <Route path="/masalar" element={<MasaDuzeni />} />
-      <Route path="/rapor" element={<Rapor />} />
-      <Route path="/stok" element={<Stok />} />
-      <Route path="/yardim" element={<Yardim />} />
-    </Routes>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
