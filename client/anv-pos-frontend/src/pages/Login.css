@@ -6,6 +6,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 100vw;      /* viewport genişliği kadar */
+    height: 100vh;     /* viewport yüksekliği kadar */
   }
   
   .login-container h2 {
