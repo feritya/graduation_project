@@ -1,0 +1,49 @@
+/* src/pages/Yardim.css */
+.yardim-container {
+  padding: 20px;
+  background-color: #ffffff;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+.sekme-basliklari {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.sekme-basliklari button {
+  background-color: #f1f1f1;
+  border: none;
+  padding: 10px 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.sekme-basliklari button.aktif,
+.sekme-basliklari button:hover {
+  background-color: #20cd8d;
+  color: #ffffff;
+}
+
+.sekme-icerik {
+  border-top: 2px solid #007bff;
+  padding-top: 20px;
+}
+
+.sekme-icerik h2 {
+  margin-top: 0;
+}
+
+.sekme-icerik ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sekme-icerik li {
+  margin-bottom: 10px;
+}

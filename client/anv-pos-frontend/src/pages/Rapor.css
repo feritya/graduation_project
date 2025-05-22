@@ -1,0 +1,120 @@
+.rapor-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  background-color: #172627;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.rapor-sidebar {
+  width: 200px;
+  background-color: #1e2d2f;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-right: 2px solid #20cd8d;
+}
+
+.rapor-sidebar button {
+  padding: 10px 15px;
+  background-color: #20cd8d;
+  border: none;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.rapor-sidebar button:hover {
+  background-color: #18b07b;
+}
+
+.rapor-sidebar button.active {
+  background-color: #ffffff;
+  color: #172627;
+  font-weight: bold;
+}
+
+.rapor-content {
+  flex: 20;
+  padding: 20px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.rapor-content select {
+  padding: 10px;
+  padding-right: 50px;
+  border-radius: 8px;
+  border: none;
+  background-color: #368165;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.rapor-output {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 12px;
+
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 100%;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.rapor-output h3,
+.rapor-output h4 {
+  color: #20cd8d;
+}
+
+.rapor-output ul {
+  list-style-type: disc;
+  margin-left: 20px;
+}
+
+.rapor-output li {
+  margin-bottom: 5px;
+}
+
+.date-picker-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.date-picker-wrapper label {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.date-picker-wrapper input {
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  width: 200px;
+}
+.date-picker-wrapper button {
+  background-color: #20cd8d;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.rapor-content button {
+  background-color: #20cd8d;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+  padding-left: 20px;}

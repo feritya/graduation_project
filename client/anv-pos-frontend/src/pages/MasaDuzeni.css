@@ -1,0 +1,100 @@
+    .masa-container {
+  padding: 20px;
+  color: rgb(0, 0, 0);
+  flex-direction:row;
+}
+.masa-container h2 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+padding-left: 200px;
+  color: #20cd8d;
+  font: 1em sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.add-table-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.add-table-form input {
+  padding: 8px;
+  font-size: 16px;
+  width: 200px;
+}
+
+.add-table-form button {
+  background-color: #20cd8d;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.table-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 16px;
+  max-width: 800px; /* toplam genişlik kısıtlanır */
+  margin: 0 auto; /* ORTALAMA */
+}
+
+
+.table-card {
+  background-color: #00ff44;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.table-card.occupied {
+  background-color: #c0392b;
+}
+.delete-button {
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 6px;
+  margin-top: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.delete-button:hover {
+  background: #e60000;
+}
+.button-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 8px;
+}
+
+.button-row button {
+  padding: 4px 8px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.button-row button:first-child {
+  background-color: #20cd8d; /* Düzenle: Yeşil */
+}
+
+.button-row button:last-child {
+  background-color: #e74c3c; /* Sil: Kırmızı */
+}
+
+.button-row button:hover {
+  opacity: 0.8;
+}

@@ -45,19 +45,28 @@ const Adisyon = () => {
     });
   }, []);
 
-  const handleAddToCart = (product) => {
-    const existing = cart.find((item) => item.product.id === product.id);
-    if (existing) {
-      const updated = cart.map((item) =>
-        item.product.id === product.id
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-      setCart(updated);
-    } else {
-      setCart([...cart, { product, quantity: 1 }]);
-    }
-  };
+const handleAddToCart = (product) => {
+  const existing = cart.find((item) => item.product.id === product.id);
+  const currentQty = existing ? existing.quantity : 0;
+  const totalAfterAdd = currentQty + 1;
+
+  if (totalAfterAdd > product.stock) {
+    alert(`${product.name} ürününün stoğu tükendi.`);
+    return;
+  }
+
+  if (existing) {
+    const updated = cart.map((item) =>
+      item.product.id === product.id
+        ? { ...item, quantity: item.quantity + 1 }
+        : item
+    );
+    setCart(updated);
+  } else {
+    setCart([...cart, { product, quantity: 1 }]);
+  }
+};
+
 
 const handleDecreaseQuantity = (productId) => {
   const updatedCart = cart.map((item) => {
@@ -208,6 +217,9 @@ if (selectedTable === tableId && cart.length > 0) {
 // Diğer siparişlere göre kontrol et
 return orders.some((order) => order.table === tableId && !order.is_paid);
 };
+const getCartTotal = () => {
+  return cart.reduce((total, item) => total + item.product.price * item.quantity, 0);
+};
 
   return (
     <div className="adisyon-container">
@@ -258,8 +270,11 @@ return orders.some((order) => order.table === tableId && !order.is_paid);
             </li>
           ))}
         </ul>
-        <button onClick={sendOrder} className="send-button">Gönder</button>
-        <button onClick={handlePayment} className="payment-button"> Ödemeyi Tamamla </button>
+        <button onClick={sendOrder} className="send-button">KAYDET</button>
+        <button onClick={handlePayment} className="payment-button">ÖDEMEYİ TAMAMLA</button>
+        <div className="cart-total">
+          Toplam: {getCartTotal().toFixed(2)} ₺
+          </div>
 
       </div>
 
@@ -277,7 +292,10 @@ return orders.some((order) => order.table === tableId && !order.is_paid);
                 }`}
                 onClick={() => handleSelectTable(table.id)}
               >
-               {table.name}
+                <div>{table.name}</div>
+                {selectedTable === table.id && (
+                  <div className="table-total">{getCartTotal().toFixed(2)} ₺</div>
+                )}
               </div>
             );
           })}

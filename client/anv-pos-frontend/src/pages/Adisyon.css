@@ -177,3 +177,15 @@
 .payment-button:hover {
   background-color: #000000;
 }
+.table-total {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}
+.cart-total {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+  color: rgb(255, 255, 255);
+}

@@ -1,0 +1,59 @@
+/* src/pages/Stok.css */
+.stok-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  /* height: 100vh; */
+  width: 100vw;
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.form-section input,
+.form-section select {
+  margin-right: 10px;
+  padding: 5px;
+}
+
+.stok-tablosu {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.stok-tablosu th,
+.stok-tablosu td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.stok-tablosu th {
+  background-color: #f2f2f2;
+}
+
+.stok-az {
+  background-color: rgba(255, 0, 0, 0.1); /* Şeffaf kırmızı */
+}
+
+button {
+  margin: 0 5px;
+  padding: 5px 10px;
+}
+/* burada sil butonumuzu child buton olarak tanımlayıp yazacağız */
+.action-buttons :last-child {
+  background-color: #d65252;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}   
+.action-buttons :nth-last-child(2) {
+  background-color: #24ba9e;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  cursor: pointer;
+  border-radius: 5px;
+}   ""
