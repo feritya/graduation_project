@@ -9,7 +9,7 @@ class Category(models.Model):
         return self.name
 
 
-class Table(models.Model): #bu sınıf masa bilgilerini tutmak için kullanılıyor
+class Table(models.Model): 
    
     name = models.CharField(max_length=20, default="masa")
     is_occupied = models.BooleanField(default=False)
@@ -17,7 +17,7 @@ class Table(models.Model): #bu sınıf masa bilgilerini tutmak için kullanılı
     def __str__(self):
         return self.name
 
-class Product(models.Model): #bu sınıf ürün bilgilerini tutmak için kullanılıyor
+class Product(models.Model): 
     name = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     stock = models.PositiveIntegerField(default=0)
@@ -26,7 +26,7 @@ class Product(models.Model): #bu sınıf ürün bilgilerini tutmak için kullan�
     def __str__(self):
         return self.name
 
-class Order(models.Model): #bu sınıf sipariş bilgilerini tutmak için kullanılıyor
+class Order(models.Model):
 
     STATUS_CHOICES = [
         ('received', 'Alındı'),
@@ -46,7 +46,7 @@ class Order(models.Model): #bu sınıf sipariş bilgilerini tutmak için kullan�
     def __str__(self):
         return f"{self.table} - {self.created_at.strftime('%d.%m.%Y %H:%M')}" #bu şekilde tarih ve saat formatını değiştirdik
 
-class OrderItem(models.Model): #bu sınıf sipariş içeriğini tutmak için kullanılıyor
+class OrderItem(models.Model): 
     order = models.ForeignKey(Order, on_delete=models.CASCADE, related_name='items') #sipariş bilgisi
     product = models.ForeignKey(Product, on_delete=models.CASCADE) #ürün bilgisi
     quantity = models.PositiveIntegerField() #ürün adedi

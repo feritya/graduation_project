@@ -80,7 +80,7 @@ const Yardim = () => {
             <a href="mailto:ornekmail@example.com">yasarferit13@gmail.com</a>
           </li>
           <li>
-            <strong>Telefon:</strong> +90 538 424 0907
+            <strong>Telefon:</strong> +90 543 210 0123
           </li>
         </ul>
       </div>

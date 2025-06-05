@@ -166,8 +166,6 @@ class SummaryReportView(APIView):
             "total_items_sold": total_items_sold,
             "top_products": top_products
         })
-
-
 class DailyReportView(APIView):
     def get(self, request):
         today = datetime.today().date()
@@ -190,7 +188,6 @@ class DailyReportView(APIView):
             "total_revenue": total_revenue,
             "top_products": list(top_products)
         })
-
 class MonthlyReportView(APIView):
     def get(self, request):
         year = int(request.GET.get('year', datetime.today().year))
@@ -216,7 +213,6 @@ class MonthlyReportView(APIView):
             "total_revenue": total_revenue,
             "top_products": list(top_products)
         })
-
 class CustomDateRangeReportView(APIView):  
     def get(self, request):
         start_date = request.query_params.get('start')

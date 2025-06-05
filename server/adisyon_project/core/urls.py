@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from core.views import TableViewSet, ProductViewSet, OrderViewSet, ProductListView,OrderCreateView,SummaryReportView,CategoryViewSet,DailyReportView,MonthlyReportView,CustomDateRangeReportView
+from core.views import TableViewSet, ProductViewSet, OrderViewSet,CategoryViewSet,DailyReportView,MonthlyReportView,CustomDateRangeReportView
 
 router = DefaultRouter()
 router.register(r'tables', TableViewSet)
